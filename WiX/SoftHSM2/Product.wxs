@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2015, Disig a.s. <opensource@disig.sk>
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without 
+modification, are permitted provided that the following conditions 
+are met:
+
+1. Redistributions of source code must retain the above copyright 
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright 
+   notice, this list of conditions and the following disclaimer in the 
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR 
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY 
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE 
+GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER 
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR 
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN 
+IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <!-- Install with: msiexec /i SoftHSM2.msi /l* SoftHSM2-install.log -->
+  <!-- Uninstall with: msiexec /x SoftHSM2.msi /l* SoftHSM2-uninstall.log -->
+  <!-- Reinstall over broken installaton with: msiexec /fv SoftHSM2.msi /l* SoftHSM2-repair.log -->
+  <Product Id="1FA367E0-286E-4A47-BA86-825066AF2BE5" Name="SoftHSM2 for Windows" Language="1033" Version="2.0.0" Manufacturer="OpenDNSSEC Project" UpgradeCode="86E18DAC-C32B-4D32-8494-233AAFA4F303">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    <Media Id="1" Cabinet="SoftHSM2.cab" EmbedCab="yes" CompressionLevel="high" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <!-- Product info displayed in control panel -->
+    <Property Id="ARPNOREPAIR" Value="1" />
+    <Property Id="ARPURLINFOABOUT" Value="https://www.opendnssec.org/softhsm/" />
+    <Property Id="ARPURLUPDATEINFO" Value="https://github.com/disig/SoftHSM2-for-Windows" />
+    <!-- Directory structure -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="INSTALLDIR" Name="SoftHSM2">
+        <Component Id="ReadmeTxtFile" Guid="6EE42E1C-B77D-44C7-B366-EAAD89533F4F">
+          <File Source="c:\SoftHSM2\README.txt" />
+        </Component>
+        <Directory Id="BinFolder" Name="bin">
+          <Component Id="Softhsm2DumpFileExeFile" Guid="CA957D96-ECA4-48B3-82ED-558E8F243B25">
+            <File Source="c:\SoftHSM2\bin\softhsm2-dump-file.exe" />
+          </Component>
+          <Component Id="Softhsm2KeyconvExeFile" Guid="2503FEC1-74A0-44FD-9C78-F475994E8566">
+            <File Source="c:\SoftHSM2\bin\softhsm2-keyconv.exe" />
+          </Component>
+          <Component Id="Softhsm2UtilExeFile" Guid="98BC7F05-5AA9-45DC-BF2F-8AFFAE9E72CD">
+            <File Source="c:\SoftHSM2\bin\softhsm2-util.exe" />
+          </Component>
+        </Directory>
+        <Directory Id="EtcFolder" Name="etc">
+          <Component Id="Softhsm2ConfFile" Guid="0884FEC4-1701-42F9-BD06-D27CB6F16458">
+            <File Source="c:\SoftHSM2\etc\softhsm2.conf" />
+            <Environment Id="Softhsm2ConfEnvVar" Action="set" Name="SOFTHSM2_CONF" Part="all" Permanent="no" System="yes" Value="[INSTALLDIR]etc\softhsm2.conf" />
+          </Component>
+          <Component Id="Softhsm2ConfSampleFile" Guid="C6CECFD4-BC83-4C8B-9084-05FF12E1D664">
+            <File Source="c:\SoftHSM2\etc\softhsm2.conf.sample" />
+          </Component>
+        </Directory>
+        <Directory Id="LibFolder" Name="lib">
+          <Component Id="Softhsm2DllFile" Guid="C608360C-D144-40C0-B35F-3ACFDA25E272">
+            <File Source="c:\SoftHSM2\lib\softhsm2.dll" />
+            <Environment Id="PathEnvVar" Action="set" Name="PATH" Part="last" Permanent="no" System="yes" Value="[INSTALLDIR]lib" />
+          </Component>          
+          <Component Id="Softhsm2X64DllFile" Guid="8BB3E1E6-7814-421F-B0DB-40C6EBDD3766">
+            <File Source="c:\SoftHSM2\lib\softhsm2-x64.dll" />
+          </Component>
+        </Directory>
+        <Directory Id="ShareFolder" Name="share">
+          <Directory Id="ShareDocFolder" Name="doc">
+            <Directory Id="ShareDocOpensslFolder" Name="openssl">
+              <Component Id="OpensslLicenseTxtFile" Guid="37A43A2E-0184-4820-BB7D-A0B54E129D8D">
+                <File Id="LICENSE.txt.1" Source="c:\SoftHSM2\share\doc\openssl\LICENSE.txt" />
+              </Component>
+            </Directory>
+            <Directory Id="ShareDocSofthsm2Folder" Name="softhsm2">
+              <Component Id="Softhsm2LicenseTxtFile" Guid="5D11851F-4553-4410-B441-D0285BAA9179">
+                <File Id="LICENSE.txt.2" Source="c:\SoftHSM2\share\doc\softhsm2\LICENSE.txt" />
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="ShareManFolder" Name="man">
+            <Directory Id="ShareManMan1Folder" Name="man1">
+              <Component Id="Softhsm2DumpFileTxtFile" Guid="F027A1F6-CBD5-4B5E-B80D-CE3E27AD08DA">
+                <File Source="c:\SoftHSM2\share\man\man1\softhsm2-dump-file.txt" />
+              </Component>
+              <Component Id="Softhsm2KeyconvTxtFile" Guid="7357F08D-1E70-4B73-8B6D-C32E1A463888">
+                <File Source="c:\SoftHSM2\share\man\man1\softhsm2-keyconv.txt" />
+              </Component>
+              <Component Id="Softhsm2UtilTxtFile" Guid="5E63AE64-F84A-4523-8F97-078F174B4720">
+                <File Source="c:\SoftHSM2\share\man\man1\softhsm2-util.txt" />
+              </Component>
+            </Directory>
+            <Directory Id="ShareManMan5Folder" Name="man5">
+              <Component Id="Softhsm2ConfTxtFile" Guid="C9341CE1-D71E-49D0-A99D-50E899901297">
+                <File Source="c:\SoftHSM2\share\man\man5\softhsm2.conf.txt" />
+              </Component>
+            </Directory>
+          </Directory>
+        </Directory>
+        <Directory Id="VarFolder" Name="var">
+          <Directory Id="VarSofthsm2Folder" Name="softhsm2">
+            <Directory Id="VarSofthsm2TokensFolder" Name="tokens">
+              <Component Id="EmptyVarSofthsm2TokensFolder" Guid="8C43A730-A7C7-4E38-9FC5-EEC0A2BA04C0">
+                <CreateFolder />
+              </Component>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+    <!-- Installed components -->
+    <Feature Id="Complete" Level="1">
+      <ComponentRef Id="ReadmeTxtFile" />
+      <ComponentRef Id="Softhsm2DumpFileExeFile" />
+      <ComponentRef Id="Softhsm2KeyconvExeFile" />
+      <ComponentRef Id="Softhsm2UtilExeFile" />
+      <ComponentRef Id="Softhsm2ConfFile" />
+      <ComponentRef Id="Softhsm2ConfSampleFile" />
+      <ComponentRef Id="Softhsm2DllFile" />
+      <ComponentRef Id="Softhsm2X64DllFile" />
+      <ComponentRef Id="OpensslLicenseTxtFile" />
+      <ComponentRef Id="Softhsm2LicenseTxtFile" />
+      <ComponentRef Id="Softhsm2DumpFileTxtFile" />
+      <ComponentRef Id="Softhsm2KeyconvTxtFile" />
+      <ComponentRef Id="Softhsm2UtilTxtFile" />
+      <ComponentRef Id="Softhsm2ConfTxtFile" />
+      <ComponentRef Id="EmptyVarSofthsm2TokensFolder" />
+    </Feature>
+    <!-- User Interface -->
+    <UIRef Id="WixUI_InstallDir" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR"/>
+    <WixVariable Id="WixUILicenseRtf" Value="SOFTHSM2-LICENSE.rtf" />
+    <Property Id="WixShellExecTarget" Value="[#README.txt]" />
+    <!-- Custom actions -->
+    <Binary Id="CustomActions.dll" SourceFile="..\CustomActions\bin\$(var.Configuration)\CustomActions.dll" />
+    <CustomAction Id="SetConfigPath" Property="GenerateConfig" Value="[INSTALLDIR]" />
+    <CustomAction Id="GenerateConfig" Return="check" Execute="deferred" BinaryKey="CustomActions.dll" DllEntry="GenerateSoftHSM2Config" Impersonate="no" />
+    <CustomAction Id="OpenReadme" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+    <InstallExecuteSequence>
+      <Custom Action="SetConfigPath" Before="GenerateConfig">NOT Installed</Custom>
+      <Custom Action="GenerateConfig" Before="InstallFinalize">NOT Installed</Custom>
+      <Custom Action="OpenReadme" After="InstallFinalize">NOT Installed</Custom>
+    </InstallExecuteSequence>
+  </Product>
+</Wix>
