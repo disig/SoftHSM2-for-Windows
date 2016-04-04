@@ -31,7 +31,7 @@ FILE FORMAT
 DIRECTORIES.TOKENDIR
        The location where SoftHSM can store the tokens.
 
-	      directories.tokendir = c:\SoftHSM2\var\softhsm2\tokens\
+	      directories.tokendir = @softhsmtokendir@
 
 OBJECTSTORE.BACKEND
        The  backend to use by SoftHSM to store token objects. Either "file" or
@@ -45,22 +45,31 @@ LOG.LEVEL
 
 	      log.level = INFO
 
+SLOTS.REMOVABLE
+       If  set	to  true  CKF_REMOVABLE_DEVICE is set in the flags returned by
+       C_GetSlotInfo. Default is false.
+
+	      slots.removable = true
+
 ENVIRONMENT
        SOFTHSM2_CONF
-	      When  defined,  the value will be used as path to the configura‐
+	      When defined, the value will be used as path to  the  configura‐
 	      tion file.
 
 FILES
-       %HOMEDRIVE%%HOMEPATH%\softhsm2.conf
-	      default user-specific  location  of  the	SoftHSM  configuration
-	      file;  if  it exists it will override the system wide configura‐
+       ~/.config/softhsm2/softhsm2.conf
+	      default  user-specific  location	of  the  SoftHSM configuration
+	      file; if it exists it will override the system  wide  configura‐
 	      tion
 
-       .\softhsm2.conf
+       @default_softhsm2_conf@
 	      default system-wide location of the SoftHSM configuration file
 
+       @default_softhsm2_conf@.sample
+	      an example of a SoftHSM configuration file
+
 AUTHOR
-       Written by Rickard Bellgrim, Francis Dupont, René Post, and Roland  van
+       Written	by Rickard Bellgrim, Francis Dupont, René Post, and Roland van
        Rijswijk.
 
 SEE ALSO
