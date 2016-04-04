@@ -1,0 +1,43 @@
+6b2588ba62bbe75465ee55caa28cdccf2e6d7b5b
+ NEWS                               | 9 +++++++++
+ win32/convarch/convarch.vcxproj.in | 3 ++-
+ 2 files changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/NEWS b/NEWS
+index 5e574f6..2a635e5 100644
+--- a/NEWS
++++ b/NEWS
+@@ -1,5 +1,14 @@
+ NEWS for SoftHSM -- History of user visible changes
+ 
++SoftHSM develop
++
++* Issue #198: Calling C_GetSlotList with NULL_PTR will make sure that
++  there is always a slot with an uninitialized token available.
++
++Bugfixes:
++* Issue #201: Missing new source file in Windows build configuration.
++
++
+ SoftHSM 2.1.0 - 2016-03-14
+ 
+ * Issue #136: Improved guide and build scripts for Windows.
+diff --git a/win32/convarch/convarch.vcxproj.in b/win32/convarch/convarch.vcxproj.in
+index 2981b66..1d204a1 100644
+--- a/win32/convarch/convarch.vcxproj.in
++++ b/win32/convarch/convarch.vcxproj.in
+@@ -165,6 +165,7 @@
+     <ClCompile Include="..\..\src\lib\common\MutexFactory.cpp" />
+     <ClCompile Include="..\..\src\lib\common\osmutex.cpp" />
+     <ClCompile Include="..\..\src\lib\common\SimpleConfigLoader.cpp" />
++    <ClCompile Include="..\..\src\lib\crypto\AESKey.cpp" />
+     <ClCompile Include="..\..\src\lib\crypto\AsymmetricAlgorithm.cpp" />
+     <ClCompile Include="..\..\src\lib\crypto\AsymmetricKeyPair.cpp" />
+ @IF BOTAN
+@@ -359,4 +360,4 @@
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+   <ImportGroup Label="ExtensionTargets">
+   </ImportGroup>
+-</Project>
+\ No newline at end of file
++</Project>

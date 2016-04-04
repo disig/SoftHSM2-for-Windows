@@ -1,0 +1,59 @@
+19aa21262827d18d88adab73811e79f42c680743
+ NEWS                                 | 3 ++-
+ src/lib/test/softhsm2-alt.conf.win32 | 6 ++++++
+ win32/p11test/p11test.vcxproj.in     | 4 +++-
+ 3 files changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/NEWS b/NEWS
+index 2a635e5..707f8f4 100644
+--- a/NEWS
++++ b/NEWS
+@@ -6,7 +6,8 @@ SoftHSM develop
+   there is always a slot with an uninitialized token available.
+ 
+ Bugfixes:
+-* Issue #201: Missing new source file in Windows build configuration.
++* Issue #201: Missing new source file and test configuration in the
++  Windows build project.
+ 
+ 
+ SoftHSM 2.1.0 - 2016-03-14
+diff --git a/src/lib/test/softhsm2-alt.conf.win32 b/src/lib/test/softhsm2-alt.conf.win32
+new file mode 100644
+index 0000000..68cb2ec
+--- /dev/null
++++ b/src/lib/test/softhsm2-alt.conf.win32
+@@ -0,0 +1,6 @@
++# SoftHSM v2 configuration file
++
++directories.tokendir = .\tokens
++objectstore.backend = file
++log.level = INFO
++slots.removable = true
+diff --git a/win32/p11test/p11test.vcxproj.in b/win32/p11test/p11test.vcxproj.in
+index 96c6740..66bb7ef 100644
+--- a/win32/p11test/p11test.vcxproj.in
++++ b/win32/p11test/p11test.vcxproj.in
+@@ -63,6 +63,7 @@
+     <PostBuildEvent>
+       <Command>
+ copy ..\..\src\lib\test\softhsm2.conf.win32 "$(TargetDir)\softhsm2.conf"
++copy ..\..\src\lib\test\softhsm2-alt.conf.win32 "$(TargetDir)\softhsm2-alt.conf"
+ mkdir "$(TargetDir)\tokens" 2&gt; nul
+ copy ..\..\src\lib\test\tokens\dummy.in "$(TargetDir)\tokens\dummy"
+       </Command>
+@@ -91,6 +92,7 @@ copy ..\..\src\lib\test\tokens\dummy.in "$(TargetDir)\tokens\dummy"
+     <PostBuildEvent>
+       <Command>
+ copy ..\..\src\lib\test\softhsm2.conf.win32 "$(TargetDir)\softhsm2.conf"
++copy ..\..\src\lib\test\softhsm2-alt.conf.win32 "$(TargetDir)\softhsm2-alt.conf"
+ mkdir "$(TargetDir)\tokens" 2&gt; nul
+ copy ..\..\src\lib\test\tokens\dummy.in "$(TargetDir)\tokens\dummy"
+       </Command>
+@@ -146,4 +148,4 @@ copy ..\..\src\lib\test\tokens\dummy.in "$(TargetDir)\tokens\dummy"
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+   <ImportGroup Label="ExtensionTargets">
+   </ImportGroup>
+-</Project>
+\ No newline at end of file
++</Project>
