@@ -8,14 +8,18 @@ This project provides binary builds and MSI installers of [SoftHSM2](https://git
 
 ## Download
 
-[SoftHSM 2.0.0 "portable" ZIP archive](https://github.com/disig/SoftHSM2-for-Windows/releases/download/2.0.0/SoftHSM2-2.0.0-portable.zip)  
+[SoftHSM 2.1.0 "portable" ZIP archive](https://github.com/disig/SoftHSM2-for-Windows/releases/download/2.1.0/SoftHSM2-2.1.0-portable.zip)  
 Requires user to set/modify `SOFTHSM2_CONF` and `PATH` environment variables manually.
 
-[SoftHSM 2.0.0 MSI installer](https://github.com/disig/SoftHSM2-for-Windows/releases/download/2.0.0/SoftHSM2-2.0.0.msi)  
+[SoftHSM 2.1.0 MSI installer](https://github.com/disig/SoftHSM2-for-Windows/releases/download/2.1.0/SoftHSM2-2.1.0.msi)  
 Does everything automatically.
 
 These packages include both 32-bit and 64-bit versions of PKCS#11 library and require both 32-bit and 64-bit version of [Visual C++ Redistributable for Visual Studio 2015](http://www.microsoft.com/en-us/download/details.aspx?id=48145
 ) to be installed on the target system.
+
+## Building the source
+
+See our [Building SoftHSM2 for Windows](BUILDING.md) guide for more details about how these packages were built.
 
 ## About
 
