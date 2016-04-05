@@ -30,7 +30,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <!-- Install with: msiexec /i SoftHSM2.msi /l* SoftHSM2-install.log -->
   <!-- Uninstall with: msiexec /x SoftHSM2.msi /l* SoftHSM2-uninstall.log -->
   <!-- Reinstall over broken installaton with: msiexec /fv SoftHSM2.msi /l* SoftHSM2-repair.log -->
-  <Product Id="1FA367E0-286E-4A47-BA86-825066AF2BE5" Name="SoftHSM2 for Windows" Language="1033" Version="2.0.0" Manufacturer="OpenDNSSEC Project" UpgradeCode="86E18DAC-C32B-4D32-8494-233AAFA4F303">
+  <Product Id="31878865-3DCD-45CF-89D9-0A533EB9123F" Name="SoftHSM2 for Windows" Language="1033" Version="2.1.0" Manufacturer="OpenDNSSEC Project" UpgradeCode="86E18DAC-C32B-4D32-8494-233AAFA4F303">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     <Media Id="1" Cabinet="SoftHSM2.cab" EmbedCab="yes" CompressionLevel="high" />
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
