@@ -8,11 +8,13 @@ NAME
 SYNOPSIS
        softhsm2-util --show-slots
 
-       softhsm2-util --init-token --slot number --label text \
+       softhsm2-util --init-token --free --label text \
 	      [--so-pin PIN --pin PIN]
 
-       softhsm2-util --import path [--file-pin PIN] --slot number \
+       softhsm2-util --import path [--file-pin PIN] --token label \
 	      [--pin PIN --no-public-key] --label text --id hex
+
+       softhsm2-util --delete-token --token text
 
 DESCRIPTION
        softhsm2-util  is a support tool mainly for libsofthsm2. It can also be
@@ -50,21 +52,27 @@ DESCRIPTION
        compared to ordinary processes in a normal computer.
 
 ACTIONS
+       --delete-token
+	      Delete the token at a given slot.  Use with --token or --serial.
+	      Any content in token will be erased.
+
        --help, -h
 	      Show the help information.
 
        --import path
-	      Import  a  key  pair  from  the given path.  The file must be in
+	      Import a key pair from the given path.   The  file  must	be  in
 	      PKCS#8-format.
-	      Use with --file-pin, --slot,  --pin,  --no-public-key,  --label,
-	      and --id.
+	      Use  with  --slot  or  --token  or  --serial, --file-pin, --pin,
+	      --no-public-key, --label, and --id.
 
        --init-token
-	      Initialize  the  token at a given slot.  If the token is already
-	      initialized then this command will reinitialize it, thus erasing
-	      all  the	objects  in  the token.  The matching Security Officer
-	      (SO) PIN must also be provided when doing reinitialization.
-	      Use with --slot or --free, --label, --so-pin, and --pin.
+	      Initialize the token at a  given	slot,  token  label  or  token
+	      serial.	If  the token is already initialized then this command
+	      will reinitialize it, thus erasing all the objects in the token.
+	      The  matching  Security  Officer	(SO) PIN must also be provided
+	      when doing reinitialization.
+	      Use with --slot or --token or --serial or --free, --label, --so-
+	      pin, and --pin.
 
        --show-slots
 	      Display all the available slots and their current status.
@@ -74,22 +82,22 @@ ACTIONS
 
 OPTIONS
        --file-pin PIN
-	      The PIN will be used to decrypt the PKCS#8 file.	If  not  given
+	      The  PIN	will be used to decrypt the PKCS#8 file.  If not given
 	      then the PKCS#8 file is assumed to be unencrypted.
 
        --force
-	      Use  this  option  to  override the warnings and force the given
+	      Use this option to override the warnings	and  force  the  given
 	      action.
 
-       --free Initialize the first free token.
+       --free Use the first free/uninitialized token.
 
        --id hex
-	      Choose an ID of the key pair.  The ID is in hexadecimal  with  a
-	      variable	length.  Use with --force when importing a key pair if
+	      Choose  an  ID of the key pair.  The ID is in hexadecimal with a
+	      variable length.	Use with --force when importing a key pair  if
 	      the ID already exists.
 
        --label text
-	      Defines the label of the object or the token.
+	      Defines the label of the object or the token that will be set.
 
        --module path
 	      Use another PKCS#11 library than SoftHSM.
@@ -100,27 +108,33 @@ OPTIONS
        --pin PIN
 	      The PIN for the normal user.
 
+       --serial number
+	      Will use the token with a matching serial number.
+
        --slot number
 	      The slot where the token is located.
 
        --so-pin PIN
 	      The PIN for the Security Officer (SO).
 
+       --token label
+	      Will use the token with a matching token label.
+
 EXAMPLES
        The token can be initialized using this command:
 
-	      softhsm2-util --init-token --slot 1 --label "A token"
+	      softhsm2-util --init-token --slot 1 --label "mytoken"
 
        A key pair can be imported using the softhsm tool where you specify the
        path to the key file, slot number, label and ID of the new objects, and
        the user PIN.  The file must be in PKCS#8 format.
 
-	      softhsm2-util --import key1.pem --slot 1 --label "My key" \
+	      softhsm2-util --import key1.pem --token "mytoken" --label "My key" \
 		     --id A1B2 --pin 123456
 	      (Add, --file-pin PIN, if the key file is encrypted.)
 
 AUTHORS
-       Written by Rickard Bellgrim, Francis Dupont, René Post, and Roland  van
+       Written	by Rickard Bellgrim, Francis Dupont, René Post, and Roland van
        Rijswijk.
 
 SEE ALSO
@@ -128,4 +142,4 @@ SEE ALSO
 
 
 
-SoftHSM 			29 October 2014 	      SOFTHSM2-UTIL(1)
+SoftHSM 			 20 April 2016		      SOFTHSM2-UTIL(1)
