@@ -8,8 +8,8 @@ project:
 
   https://www.opendnssec.org/softhsm/
 
-This package includes both 32-bit and 64-bit build of SoftHSM 2.1.0 statically 
-linked to OpenSSL 1.0.2g. It requires both 32-bit and 64-bit version of Visual 
+This package includes both 32-bit and 64-bit build of SoftHSM 2.2.0 statically 
+linked to OpenSSL 1.1.0d. It requires both 32-bit and 64-bit version of Visual 
 C++ Redistributable for Visual Studio 2015 to be installed on the target 
 system. These can be downloaded from:
 
