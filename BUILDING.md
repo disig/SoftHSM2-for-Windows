@@ -46,7 +46,7 @@ In a **new command line window** build OpenSSL and install it into `C:\build\bin
     nmake
     nmake test
     nmake install
-	
+
 ## 64-bit
 
 Extract archive `openssl-1.1.0f.tar.gz` into `C:\build\src\openssl-1.1.0f-x64` directory:
@@ -62,7 +62,7 @@ In a **new command line window** build OpenSSL and install it into `C:\build\bin
     cd C:\build\src\openssl-1.1.0f-x64
     set PATH=%PATH%;C:\nasm
     "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
-	perl Configure VC-WIN64A --prefix=C:\build\bin\openssl-1.1.0f-x64 --openssldir=C:\build\bin\openssl-1.1.0f-x64\ssl no-shared
+    perl Configure VC-WIN64A --prefix=C:\build\bin\openssl-1.1.0f-x64 --openssldir=C:\build\bin\openssl-1.1.0f-x64\ssl no-shared
     nmake
     nmake test
     nmake install
@@ -231,7 +231,7 @@ Copy licenses and changelog to `C:\SoftHSM2\share\doc\` directory:
 
     copy C:\build\src\openssl-1.1.0f-x64\LICENSE C:\SoftHSM2\share\doc\openssl\LICENSE.txt
     copy C:\build\src\softhsm-2.3.0-x64\LICENSE C:\SoftHSM2\share\doc\softhsm2\LICENSE.txt
-	copy c:\build\src\softhsm-2.3.0-x64\NEWS C:\SoftHSM2\share\doc\softhsm2\CHANGELOG.txt
+    copy c:\build\src\softhsm-2.3.0-x64\NEWS C:\SoftHSM2\share\doc\softhsm2\CHANGELOG.txt
 
 Copy manual pages to `C:\SoftHSM2\share\man\` directory:
 
