@@ -30,7 +30,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <!-- Install with: msiexec /i SoftHSM2.msi /l* SoftHSM2-install.log -->
   <!-- Uninstall with: msiexec /x SoftHSM2.msi /l* SoftHSM2-uninstall.log -->
   <!-- Reinstall over broken installaton with: msiexec /fv SoftHSM2.msi /l* SoftHSM2-repair.log -->
-  <Product Id="69AA89EC-2A98-42BD-BFDA-2A935980564C" Name="SoftHSM2 for Windows" Language="1033" Version="2.2.0" Manufacturer="OpenDNSSEC Project" UpgradeCode="86E18DAC-C32B-4D32-8494-233AAFA4F303">
+  <Product Id="085D7776-24F6-4819-9EF4-77BB7AC17FB2" Name="SoftHSM2 for Windows" Language="1033" Version="2.3.0" Manufacturer="OpenDNSSEC Project" UpgradeCode="86E18DAC-C32B-4D32-8494-233AAFA4F303">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     <Media Id="1" Cabinet="SoftHSM2.cab" EmbedCab="yes" CompressionLevel="high" />
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -84,6 +84,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
               <Component Id="Softhsm2LicenseTxtFile" Guid="5D11851F-4553-4410-B441-D0285BAA9179">
                 <File Id="LICENSE.txt.2" Source="c:\SoftHSM2\share\doc\softhsm2\LICENSE.txt" />
               </Component>
+              <Component Id="Softhsm2ChangelogTxtFile" Guid="93E70FEB-169C-45E6-919A-AF8FCEA641BB">
+                <File Source="c:\SoftHSM2\share\doc\softhsm2\CHANGELOG.txt" />
+              </Component>
             </Directory>
           </Directory>
           <Directory Id="ShareManFolder" Name="man">
@@ -128,6 +131,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       <ComponentRef Id="Softhsm2X64DllFile" />
       <ComponentRef Id="OpensslLicenseTxtFile" />
       <ComponentRef Id="Softhsm2LicenseTxtFile" />
+	  <ComponentRef Id="Softhsm2ChangelogTxtFile" />
       <ComponentRef Id="Softhsm2DumpFileTxtFile" />
       <ComponentRef Id="Softhsm2KeyconvTxtFile" />
       <ComponentRef Id="Softhsm2UtilTxtFile" />

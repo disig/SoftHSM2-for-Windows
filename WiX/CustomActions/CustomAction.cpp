@@ -95,6 +95,7 @@ UINT __stdcall GenerateSoftHSM2Config(MSIHANDLE hInstall)
 	configStream << "directories.tokendir = " << tokensDirPath << std::endl;
 	configStream << "objectstore.backend = file" << std::endl;
 	configStream << "log.level = INFO" << std::endl;
+	configStream << "slots.removable = false" << std::endl;
 
 	configStream.close();
 
