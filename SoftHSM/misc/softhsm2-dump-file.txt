@@ -1,7 +1,5 @@
 SOFTHSM2-DUMP-FILE(1)	    General Commands Manual	 SOFTHSM2-DUMP-FILE(1)
 
-
-
 NAME
        softhsm2-dump-file - SoftHSM object file dump
 
@@ -17,7 +15,5 @@ OPTIONS
 
        --help, -h
 	      Show the help information.
-
-
 
 SoftHSM 			 20 March 2014		 SOFTHSM2-DUMP-FILE(1)
