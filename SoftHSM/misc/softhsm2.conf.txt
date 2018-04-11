@@ -29,7 +29,7 @@ FILE FORMAT
 DIRECTORIES.TOKENDIR
        The location where SoftHSM can store the tokens.
 
-	      directories.tokendir = @softhsmtokendir@
+	      directories.tokendir = c:\SoftHSM2\var\softhsm2\tokens\
 
 OBJECTSTORE.BACKEND
        The  backend to use by SoftHSM to store token objects. Either "file" or
@@ -55,15 +55,15 @@ ENVIRONMENT
 	      tion file.
 
 FILES
-       ~/.config/softhsm2/softhsm2.conf
+       %HOMEDRIVE%%HOMEPATH%\softhsm2.conf
 	      default  user-specific  location	of  the  SoftHSM configuration
 	      file; if it exists it will override the system  wide  configura‐
 	      tion
 
-       @default_softhsm2_conf@
+       .\softhsm2.conf
 	      default system-wide location of the SoftHSM configuration file
 
-       @default_softhsm2_conf@.sample
+       softhsm2.conf.sample
 	      an example of a SoftHSM configuration file
 
 AUTHOR
