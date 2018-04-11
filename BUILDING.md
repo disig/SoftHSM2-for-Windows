@@ -274,9 +274,9 @@ Convert EOL of all files in `C:\SoftHSM2\etc\` and `C:\SoftHSM2\share\` director
 	find /mnt/c/SoftHSM2/etc -type f -exec perl -pi -e 's/\n/\r\n/' '{}' ';'
 	find /mnt/c/SoftHSM2/share -type f -exec perl -pi -e 's/\n/\r\n/' '{}' ';'
 
-Update file `C:\SoftHSM2\share\man\man5\softhsm2.conf.txt` with [Windows specific information](#TODO).
+Update file `C:\SoftHSM2\share\man\man5\softhsm2.conf.txt` with [Windows specific information](https://github.com/disig/SoftHSM2-for-Windows/commit/dfc9ace3c9e2ed5130add17e8347c63fd7d49b59).
 
-Update file `C:\SoftHSM2\etc\softhsm2.conf` with [Windows specific information](#TODO).
+Update file `C:\SoftHSM2\etc\softhsm2.conf` with [Windows specific information](https://github.com/disig/SoftHSM2-for-Windows/commit/da8c1bc8ee2608bd8924cb079592d8db668d9638).
 
 Create file [`C:\SoftHSM2\README.txt`](SoftHSM/misc/README.txt).
 
