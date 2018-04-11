@@ -1,7 +1,5 @@
 SOFTHSM2-KEYCONV(1)	    General Commands Manual	   SOFTHSM2-KEYCONV(1)
 
-
-
 NAME
        softhsm2-keyconv - converting from BIND to PKCS#8 key file format
 
@@ -45,7 +43,5 @@ AUTHORS
 SEE ALSO
        softhsm2-migrate(1),  softhsm2-util(1),	softhsm2.conf(5),  openssl(1),
        named(1), dnssec-keygen(1), dnssec-signzone(1)
-
-
 
 SoftHSM 			 20 March 2014		   SOFTHSM2-KEYCONV(1)

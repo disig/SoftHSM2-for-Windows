@@ -1,7 +1,5 @@
 SOFTHSM2-UTIL(1)	    General Commands Manual	      SOFTHSM2-UTIL(1)
 
-
-
 NAME
        softhsm2-util - support tool for libsofthsm2
 
@@ -13,6 +11,9 @@ SYNOPSIS
 
        softhsm2-util --import path [--file-pin PIN] --token label \
 	      [--pin PIN --no-public-key] --label text --id hex
+
+       softhsm2-util --import path --aes --token label \
+	      [--pin PIN] --label text --id hex
 
        softhsm2-util --delete-token --token text
 
@@ -64,13 +65,16 @@ ACTIONS
 	      PKCS#8-format.
 	      Use  with  --slot  or  --token  or  --serial, --file-pin, --pin,
 	      --no-public-key, --label, and --id.
+	      Can also be used with --aes to use file as is and import	it  as
+	      AES.
 
        --init-token
-	      Initialize the token at a  given	slot,  token  label  or  token
-	      serial.	If  the token is already initialized then this command
+	      Initialize  the  token  at  a  given  slot, token label or token
+	      serial.  If the token is already initialized then  this  command
 	      will reinitialize it, thus erasing all the objects in the token.
-	      The  matching  Security  Officer	(SO) PIN must also be provided
-	      when doing reinitialization.
+	      The matching Security Officer (SO) PIN  must  also  be  provided
+	      when  doing  reinitialization.  Initialized tokens will be reas‐
+	      signed to another slot (based on the token serial number).
 	      Use with --slot or --token or --serial or --free, --label, --so-
 	      pin, and --pin.
 
@@ -81,6 +85,8 @@ ACTIONS
 	      Show the version info.
 
 OPTIONS
+       --aes  Used to tell import to use file as is and import it as AES.
+
        --file-pin PIN
 	      The  PIN	will be used to decrypt the PKCS#8 file.  If not given
 	      then the PKCS#8 file is assumed to be unencrypted.
@@ -140,6 +146,4 @@ AUTHORS
 SEE ALSO
        softhsm2-keyconv(1), softhsm2-migrate(1), softhsm2.conf(5)
 
-
-
-SoftHSM 			 20 April 2016		      SOFTHSM2-UTIL(1)
+SoftHSM 		       22 September 2017	      SOFTHSM2-UTIL(1)
