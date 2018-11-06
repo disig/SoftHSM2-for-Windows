@@ -8,8 +8,8 @@ project:
 
   https://www.opendnssec.org/softhsm/
 
-This package includes both 32-bit and 64-bit build of SoftHSM 2.3.0 statically 
-linked to OpenSSL 1.1.0h. Latest version of SoftHSM2 for Windows can be 
+This package includes both 32-bit and 64-bit build of SoftHSM 2.5.0 statically 
+linked to OpenSSL 1.1.1. Latest version of SoftHSM2 for Windows can be 
 downloaded from:
 
   https://github.com/disig/SoftHSM2-for-Windows
