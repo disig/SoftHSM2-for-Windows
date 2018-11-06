@@ -10,10 +10,10 @@ This project provides binary builds and MSI installers of [SoftHSM2](https://git
 
 These packages include both 32-bit and 64-bit versions of PKCS#11 library:
 
-[SoftHSM 2.4.0 "portable" ZIP archive](https://github.com/disig/SoftHSM2-for-Windows/releases/download/v2.4.0/SoftHSM2-2.4.0-portable.zip)  
+[SoftHSM 2.5.0 "portable" ZIP archive](https://github.com/disig/SoftHSM2-for-Windows/releases/download/v2.5.0/SoftHSM2-2.5.0-portable.zip)  
 Requires user to set/modify `SOFTHSM2_CONF` and `PATH` environment variables manually.
 
-[SoftHSM 2.4.0 MSI installer](https://github.com/disig/SoftHSM2-for-Windows/releases/download/v2.4.0/SoftHSM2-2.4.0.msi)  
+[SoftHSM 2.5.0 MSI installer](https://github.com/disig/SoftHSM2-for-Windows/releases/download/v2.5.0/SoftHSM2-2.5.0.msi)  
 Does everything automatically.
 
 ## Building the source
