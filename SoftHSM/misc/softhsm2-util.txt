@@ -24,8 +24,8 @@ DESCRIPTION
        Read the sections below to get more information on the libsofthsm2  and
        PKCS#11.   Most applications assumes that the token they want to use is
        already initialized.  It is then up  to	the  user  to  initialize  the
-       PKCS#11	token.	 This  is  done  by  using  the PKCS#11 interface, but
-       instead of writing your own tool you can use the softhsm2-util tool.
+       PKCS#11	token.	 This  is done by using the PKCS#11 interface, but in‐
+       stead of writing your own tool you can use the softhsm2-util tool.
 
        Keys are usually created directly in the token, but the user  may  want
        to  use an existing key pair.  Keys can be imported to a token by using
@@ -69,8 +69,8 @@ ACTIONS
 	      AES.
 
        --init-token
-	      Initialize  the  token  at  a  given  slot, token label or token
-	      serial.  If the token is already initialized then  this  command
+	      Initialize  the  token at a given slot, token label or token se‐
+	      rial.  If the token is already  initialized  then  this  command
 	      will reinitialize it, thus erasing all the objects in the token.
 	      The matching Security Officer (SO) PIN  must  also  be  provided
 	      when  doing  reinitialization.  Initialized tokens will be reas‐
@@ -92,8 +92,8 @@ OPTIONS
 	      then the PKCS#8 file is assumed to be unencrypted.
 
        --force
-	      Use this option to override the warnings	and  force  the  given
-	      action.
+	      Use this option to override the warnings and force the given ac‐
+	      tion.
 
        --free Use the first free/uninitialized token.
 
